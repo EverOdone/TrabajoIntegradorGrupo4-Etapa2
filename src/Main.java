@@ -40,27 +40,26 @@ public class Main {
 
         while (lectorPro.hasNextLine()) {
             String line = lectorPro.nextLine();
-            String[] parts = line.split(";");
-            int parPro = Integer.parseInt(parts[0]);
+            String[] parts = line.split(";");//Divide la línea en diferentes partes
+            int parPro = Integer.parseInt(parts[0]);//Se convierte el primer elemento del array de partes a un entero
             String nomPro = parts[2];
             String resPro = parts[1];
 
-            Pronostico nuevo2 = new Pronostico(parPro,resPro,nomPro);
+            Pronostico nuevo2 = new Pronostico(parPro,resPro,nomPro);//Genera nuevos Pronosticos
             listaPronostico.agregarPronostico(nuevo2);
         }
 
         System.out.println("");
 
-        int conPuntos = 0;
         String equipoGanador = "";
-        HashMap<String, Integer> puntajesJugadores = new HashMap<>();
+        HashMap<String, Integer> puntajesJugadores = new HashMap<>();//Almacena puntaje jugadores
 
-        for (int i = 1; i < lista.cantidadPartido()+1 ; i++) {
+        for (int i = 1; i < lista.cantidadPartido()+1 ; i++) {//Recorre todos los partidos
             Partido partido = lista.partidos.get(i);
             int resEquipo1 = partido.getGoles1();
             int resEquipo2 = partido.getGoles2();
 
-            if (resEquipo1 > resEquipo2) {
+            if (resEquipo1 > resEquipo2) { //Calcula equipos ganadores
                 equipoGanador = partido.getEquipo1();
                 System.out.println("Resultado nº " + i + " : " +  equipoGanador);
             } else {
@@ -73,11 +72,10 @@ public class Main {
                 }
             }
             HashMap<String, String> jugadores = listaPronostico.pronosticos.get(i);
-            for (String jugador : jugadores.keySet()) {
+            for (String jugador : jugadores.keySet()) { //Recorre pronosticos por jugador
                 String resultadoJugador = jugadores.get(jugador);
                 if (resultadoJugador.trim().equals(equipoGanador.trim())) {
-                    conPuntos++;
-                    int puntajeActual = puntajesJugadores.getOrDefault(jugador, 0);
+                    int puntajeActual = puntajesJugadores.getOrDefault(jugador, 0);//Acumula puntaje por jugador
                     puntajesJugadores.put(jugador, puntajeActual + 1);
                     System.out.println("Jugador : "+ jugador + " +1");
                 }else {
@@ -89,7 +87,7 @@ public class Main {
             System.out.println("");
 
         }
-        for (String jugador : puntajesJugadores.keySet()) {
+        for (String jugador : puntajesJugadores.keySet()) {//Mustra puntaje por jugador
             int puntaje = puntajesJugadores.get(jugador);
             System.out.println("Puntaje de "+jugador+": "+puntaje);
         }
