@@ -1,0 +1,18 @@
+1;Argentina;Diego
+2;Polonia;Diego
+3;Argentina;Diego
+4;Polonia;Diego
+5;Argentina;Diego
+6;Mexico;Diego
+1;Arabia Saudita;Martin
+2;Mexico;Martin
+3;Argentina;Martin
+4;Polonia;Martin
+5;Argentina;Martin
+6;Mexico;Martin
+1;Empate;Javier
+2;Empate;Javier
+3;Argentina;Javier
+4;Empate;Javier
+5;Empate;Javier
+6;Arabia Saudita;Javier
