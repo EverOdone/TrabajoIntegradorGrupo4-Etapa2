@@ -15,8 +15,6 @@ public class ResultadosPro {
         Path listaPro = Paths.get(nombreArchivo);
         Scanner lectorPro = new Scanner(listaPro);
 
-        lectorPro.useDelimiter("[,;\\n]");
-
         ResultadosPro listaPronostico = new ResultadosPro();
 
         while (lectorPro.hasNextLine()) {
@@ -38,13 +36,24 @@ public class ResultadosPro {
         String nombre = pronostico.getNombre();
         String resultado = pronostico.getResultado();
 
+        String nombreModificado = nombre; // Inicializa nombreModificado con el valor original
+
+        boolean nombreExiste = pronosticos.containsKey(nPartido) && pronosticos.get(nPartido).containsKey(nombre);//Si ambas condiciones son verdaderas, significa que ya existe un pronóstico para el partido y el nombre.
+        if (nombreExiste) { // Si el nombre original ya existe, agregar sufijo para hacerlo diferente
+            nombreModificado = nombre + " (2)";
+            int i = 2;
+            while (pronosticos.containsKey(nPartido) && pronosticos.get(nPartido).containsKey(nombreModificado)) { //Si el nombre del jugador ya está registrado se le agrega un número para crear un nombre modificado.
+                nombreModificado = nombre + " (" + i + ")" ;
+                i++;
+            }
+        }
         if (pronosticos.containsKey(nPartido)) {
-            pronosticos.get(nPartido).put(nombre, resultado);//Si ya existe un partido con ese número, se añade el pronóstico del jugador (nombre y resultado) en el mapa interno correspondiente al partido
+            pronosticos.get(nPartido).put(nombreModificado, resultado);
         } else {
-            HashMap<String, String> jugadores = new HashMap<>();//Si no existe un partido con ese número, se crea un nuevo mapa "jugadores" con el nombre del jugador y su resultado y se añade al mapa "pronosticos" con la clave del número de partido.
-            jugadores.put(nombre, resultado);
+            HashMap<String, String> jugadores = new HashMap<>();
+            jugadores.put(nombreModificado, resultado);
             pronosticos.put(nPartido, jugadores);
         }
     }
 
-  }
+}

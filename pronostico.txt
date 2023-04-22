@@ -16,3 +16,21 @@
 4;Empate;Javier
 5;Empate;Javier
 6;Arabia Saudita;Javier
+1;Empate;Diego
+2;Empate;Diego
+3;Argentina;Diego
+4;Polonia;Diego
+5;Argentina;Diego
+6;Empate;Diego
+1;Argentina;Martin
+2;Empate;Martin
+3;Argentina;Martin
+4;Polonia;Martin
+5;Empate;Martin
+6;Arabia Saudita;Martin
+1;Arabia Saudita;Diego
+2;Empate;Diego
+3;Argentina;Diego
+4;Polonia;Diego
+5;Argentina;Diego
+6;Mexico;Diego

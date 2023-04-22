@@ -56,20 +56,35 @@ public class Main {
             System.out.println("");
 
         }
+        String mensaje = "Tabla de Posiciones";
+        String subrayado = "-".repeat(mensaje.length());
+        System.out.println(mensaje);
+        System.out.println(subrayado);
+
         int puntajeMaximo = 0;
         String jugadorMaximo = "";
 
-        for (String jugador : puntajesJugadores.keySet()) {//Mustra puntaje por jugador
+        for (String jugador : puntajesJugadores.keySet()) {//Calcula el Mayor.
             int puntaje = puntajesJugadores.get(jugador);
-            System.out.println("Puntaje de "+jugador+": "+puntaje);
 
             if (puntaje > puntajeMaximo) {
                 puntajeMaximo = puntaje;
                 jugadorMaximo = jugador;
             }
         }
+        puntajesJugadores.entrySet().stream()//Se convierte el mapa de puntajes de jugadores en un flujo de datos (stream), lo que permitirá procesar los elementos del mapa de forma más eficiente.
+
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                // Los elementos del flujo se ordenan utilizando el método sorted() y la clase Map.Entry.
+                // Se utiliza comparingByValue() para ordenar los elementos por su valor (en este caso, el puntaje), y el método reversed() invierte el orden para que los elementos estén en orden descendente.
+
+                .forEach(entry -> System.out.println(entry.getKey() + ": " + entry.getValue()));
+                //Se utiliza el método forEach() para imprimir cada elemento del flujo en la consola.
+                //Toma cada elemento del flujo (entry) y lo imprime en la consola, concatenando la clave (getKey()) y el valor (getValue()) del objeto Map.Entry.
+
         System.out.println("");
-        System.out.println("El jugador con el mayor puntaje es :  " + jugadorMaximo + " ( " + puntajeMaximo + " ) puntos.");
+        System.out.println("El jugador Ganador es :  " + jugadorMaximo + " ( " + puntajeMaximo + " ) puntos.");
+
 
     }
 }
