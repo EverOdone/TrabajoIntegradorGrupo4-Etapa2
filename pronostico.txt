@@ -28,9 +28,9 @@
 4;Polonia;Martin
 5;Empate;Martin
 6;Arabia Saudita;Martin
-1;Arabia Saudita;Diego
-2;Empate;Diego
-3;Argentina;Diego
-4;Polonia;Diego
-5;Argentina;Diego
-6;Mexico;Diego
+1;Arabia Saudita;Maxi
+2;Empate;Maxi
+3;Argentina;Maxi
+4;Polonia;Maxi
+5;Argentina;Maxi
+6;Mexico;Maxi

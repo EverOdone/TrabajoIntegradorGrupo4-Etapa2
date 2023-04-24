@@ -4,6 +4,7 @@ import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.HashMap;
+import javax.swing.JOptionPane;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -84,8 +85,9 @@ public class Main {
 
         System.out.println(subrayado);
         System.out.println("");
-        System.out.println("El jugador Ganador es :  " + jugadorMaximo + " ( " + puntajeMaximo + " ) puntos.");
 
+        System.out.println("El jugador Ganador es :  " + jugadorMaximo + " ( " + puntajeMaximo + " ) puntos.");
+        JOptionPane.showMessageDialog(null, "El jugador Ganador es :  " + jugadorMaximo + " ( " + puntajeMaximo + " ) puntos.");
 
     }
 }
