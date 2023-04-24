@@ -82,6 +82,7 @@ public class Main {
                 //Se utiliza el método forEach() para imprimir cada elemento del flujo en la consola.
                 //Toma cada elemento del flujo (entry) y lo imprime en la consola, concatenando la clave (getKey()) y el valor (getValue()) del objeto Map.Entry.
 
+        System.out.println(subrayado);
         System.out.println("");
         System.out.println("El jugador Ganador es :  " + jugadorMaximo + " ( " + puntajeMaximo + " ) puntos.");
 
